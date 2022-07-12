@@ -18,9 +18,9 @@ int (*find_function(const char *format))(va_list)
 		{NULL, NULL}
 	};
 
-	while(find_f[i].sc)
+	while (find_f[i].sc)
 	{
-		if(find_f[i].sc[0] == (*format))
+		if (find_f[i].sc[0] == (*format))
 			return (find_f[i].f);
 		i++;
 	}
@@ -34,13 +34,13 @@ int (*find_function(const char *format))(va_list)
 int _printf(const char *format, ...)
 {
 	va_list ap;
-	
+
 	int (*f)(va_list);
 	unsigned int i = 0, cprint = 0;
 
 	if (format == NULL)
 		return (-1);
-	
+
 	va_start(ap, format);
 	while (format[i])
 	{
@@ -64,7 +64,7 @@ int _printf(const char *format, ...)
 		_putchar(format[i]);
 		cprint++;
 		if (format[i + 1] == '%')
-			i +=2;
+			i += 2;
 		else
 			i++;
 	}
